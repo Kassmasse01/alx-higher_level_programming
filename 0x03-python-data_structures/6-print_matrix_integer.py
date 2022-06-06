@@ -1,16 +1,13 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    """
-    Prints a matrix of integers
-    Args:
-        matrix: a double dimension list
-    Returns:
-        Nothing, just print out the matrix
-    """
-    for item in matrix:
-        l = len(item)
-        if l == 0:
+    if not matrix:
+        print()
+    else:
+        for row in range(len(matrix)):
+            for item in range(len(matrix[row])):
+                if item != len(matrix[row]) - 1:
+                    endspace = ' '
+                else:
+                    endspace = ''
+                print("{:d}".format(matrix[row][item]), end=endspace)
             print()
-        for i in range(l):
-            print("{:d}".format(item[i]), end="\n" if i == l - 1 else " ")
-
