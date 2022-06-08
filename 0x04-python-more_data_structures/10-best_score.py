@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    """
-    Returns key with the biggest integer value
-    """
-    if a_dictionary is None or a_dictionary is {}:
+    if not a_dictionary:
         return None
-    else:
-        return max(a_dictionary)
+    scores = list(a_dictionary.values())
+    scores.sort()
+    best = scores[-1]
+    for k in a_dictionary:
+        if a_dictionary[k] == best:
+            return k
