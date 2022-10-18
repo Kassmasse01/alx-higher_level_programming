@@ -1,8 +1,13 @@
 #!/usr/bin/node
 let fs = require('fs');
+let file = process.argv[2];
+let content = process.argv[3];
 
-let data = process.argv[3];
-
-fs.writeFile(process.argv[2], data, function (err, data) {
-  if (err) console.log(err);
-});
+function writeMe (file, content) {
+  fs.writeFile(file, content, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+}
+writeMe(file, content);

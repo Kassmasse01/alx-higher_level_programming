@@ -1,6 +1,16 @@
 #!/usr/bin/node
-const r = require('request');
-const u = 'http://swapi.co/api/films/' + process.argv[2];
-r(u, function (error, response, body) {
-  console.log(JSON.parse(body).title || error);
-});
+const request = require('request');
+const id = process.argv[2];
+const url = 'http://swapi.co/api/films/' + id;
+
+function printTitle (url) {
+  request(url, function (error, response, body) {
+    if (error) {
+      console.log(error);
+    } else {
+      let jsonDict = JSON.parse(body);
+      console.log(jsonDict.title);
+    }
+  });
+}
+printTitle(url);
